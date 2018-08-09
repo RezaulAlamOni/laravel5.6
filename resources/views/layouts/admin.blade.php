@@ -8,7 +8,6 @@
     <meta name="author" content="">
 
     <title>Admin</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('/css/app.css')}}" rel="stylesheet">
     <link href="{{asset('/css/libs.css')}}" rel="stylesheet">
@@ -22,18 +21,18 @@
 <body id="admin-page">
 <div class="container">
     <nav id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 1px">
-            <div class="navbar-header navbar-left" >
+        <nav class="navbar navbar-default navbar-static-top " role="navigation" style="margin-bottom: 1px;padding-top:1px">
+            <div class="navbar-header navbar-left col-md-4" >
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand"  href="/">Home</a>
+                <a class="navbar-brand text-success text-uppercase" href="/" style="font-size: 20px"><b>Home</b></a>
             </div>
             <!-- /.navbar-header -->
+            <div class="col-md-8">
 
             <ul class="nav navbar-top-links navbar-right">
                 <!-- /.dropdown -->
@@ -55,6 +54,7 @@
                 <!-- /.dropdown -->
             </ul>
 
+            </div>
             {{--<ul class="nav navbar-nav navbar-right">--}}
             {{--@if(auth()->guest())--}}
             {{--@if(!Request::is('auth/login'))--}}
@@ -94,7 +94,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a  class="active" href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
 
                         <li>
@@ -208,24 +208,6 @@
                                 <li>
                                     <a href="#">Second Level Item</a>
                                 </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -256,10 +238,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header"></h1>
-
                     @yield('content')
-                    <h1>admin</h1>
+
+
+
+
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
