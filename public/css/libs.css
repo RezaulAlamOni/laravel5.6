@@ -3556,7 +3556,8 @@ tbody.collapse.in {
   margin-bottom: 2px;
 }
 @media (min-width: 768px) {
-  .navbar-right .dropdown-menu {
+
+  t .dropdown-menu {
     right: 0;
     left: auto;
   }
@@ -4398,10 +4399,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar-left {
-    float: left !important;
+    float: left ;
   }
   .navbar-right {
-    float: right !important;
+    float: right ;
     margin-right: -15px;
   }
   .navbar-right ~ .navbar-right {
