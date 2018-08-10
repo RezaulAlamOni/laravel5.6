@@ -19,7 +19,7 @@
 </head>
 
 <body id="admin-page">
-<div class="container">
+<div class="">
     <nav id="wrapper">
         <nav class="navbar navbar-default navbar-static-top " role="navigation" style="margin-bottom: 1px;padding-top:1px">
             <div class="navbar-header navbar-left col-md-4" >
@@ -101,10 +101,10 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Users <span class=""></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/users"><i class="fa fa-adn fa-fw"> </i> All Users</a>
+                                    <a href="{{route('admin.users')}}"><i class="fa fa-adn fa-fw"> </i> All Users</a>
                                 </li>
                                 <li>
-                                    <a href="/users/create"><i class="fa fa-edit fa-fw"> </i> Create User</a>
+                                    <a href="{{route('admin.user.create')}}"><i class="fa fa-edit fa-fw"> </i> Create User</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
