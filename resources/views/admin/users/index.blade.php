@@ -4,7 +4,7 @@
     <h1 class="page-header">
         All Users
     </h1>
-    <a href="{{Route('user.create')}}" class="btn btn-info">Add Usre</a>
+    <a href="{{Route('user.create')}}" class="btn btn-info">Add User</a>
     <table class="table table-bordered">
        <thead>
          <tr>
@@ -28,7 +28,8 @@
            <td>{{$user->id}}</td>
            <td>{{$user->name}}</td>
            <td>{{$user->email}}</td>
-           <td>{{$user->role->name}}</td>
+
+           <td>{{$user->role['name']}}</td>
            <td>{{$user->is_active==1?'Active':'Not Active'}}</td>
            <td>{{$user->created_at->diffForHumans()}}</td>
            <td>{{$user->updated_at->diffForHumans()}}</td>

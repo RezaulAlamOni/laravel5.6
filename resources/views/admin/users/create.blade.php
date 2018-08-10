@@ -15,7 +15,7 @@
                 {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'Enter Post Email']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('role','Role') !!}
+                {!! Form::label('role_id','Role') !!}
                 {!! Form::select('role_id',$roles,2,['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
