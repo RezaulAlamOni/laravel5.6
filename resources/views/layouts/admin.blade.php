@@ -37,8 +37,15 @@
             <ul class="nav navbar-top-links navbar-right">
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 16px;">
+
+                        @if(!auth()->guest())
+                            <img class="img-circle" style="height: 20px" src="{{auth()->user()->photo ? auth()->user()->photo['file']: 'http://placeholder.it/400*400'}}" alt="">
+                            <i class="fa fa-user fa-fw"></i>
+                            {{ auth()->user()->name }}
+
+                            @endif
+
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -54,7 +61,7 @@
                 <!-- /.dropdown -->
             </ul>
 
-            </div>
+
             {{--<ul class="nav navbar-nav navbar-right">--}}
             {{--@if(auth()->guest())--}}
             {{--@if(!Request::is('auth/login'))--}}
@@ -74,6 +81,7 @@
             {{--</li>--}}
             {{--@endif--}}
             {{--</ul>--}}
+            </div>
         </nav>
         <nav id="sidebar">
             <div class="navbar-default sidebar" role="navigation">

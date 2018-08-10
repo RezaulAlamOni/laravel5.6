@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Admin;
 use App\Http\Requests\UsersRequest;
 use App\Photo;
 use App\Role;
@@ -11,6 +12,15 @@ use Illuminate\Http\Request;
 class AdminUsersController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(Admin::class);
+    }
+
+    public function dashboard(){
+
+        return view('admin\index');
+    }
     public function index()
     {
         $users = User::all();
@@ -99,6 +109,7 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return redirect('/');
     }
 }

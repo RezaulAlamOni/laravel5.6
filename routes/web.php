@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Middleware\Admin;
 use App\User;
 
 Route::get('/', function () {
@@ -20,17 +21,24 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin',function (){
-    return view('admin\index');
-});
 Route::get('/role',function (){
-    $user=User::find(2);
-    return $user->role->name;
+    $user=User::find(8);
+        if($user->isAdmin()){
+         return "Yore areaa asdmin";
+        }
+        return 'yiu are inot';
 });
 
-//Route::resource('/admin/user','AdminUsersController');
-Route::get('/admin/users','AdminUsersController@index')->name('admin.users');
-Route::post('/admin/user/create','AdminUsersController@store')->name('user.store');
-Route::get('/admin/user/create','AdminUsersController@create')->name('admin.user.create');
-Route::get('/admin/user/edit/{id}','AdminUsersController@edit')->name('admin.user.edit');
-Route::PATCH('/admin/user/update/{id}','AdminUsersController@update')->name('admin.user.update');
+
+//Route::group(['middleware'=>'admin'],function (){
+//Route::group(['middleware'=>Admin::class],function (){
+
+    Route::resource('/admin/user','AdminUsersController');
+    Route::get('/admin','AdminUsersController@dashboard')->name('admin.dashboard');
+    Route::get('/admin/users','AdminUsersController@index')->name('admin.users');
+    Route::post('/admin/user/create','AdminUsersController@store')->name('user.store');
+    Route::get('/admin/user/create','AdminUsersController@create')->name('admin.user.create');
+    Route::get('/admin/user/edit/{id}','AdminUsersController@edit')->name('admin.user.edit');
+    Route::PATCH('/admin/user/update/{id}','AdminUsersController@update')->name('admin.user.update');
+    Route::delete('/admin/user/delete/{id}','AdminUsersController@destroy')->name('admin.user.delete');
+//});

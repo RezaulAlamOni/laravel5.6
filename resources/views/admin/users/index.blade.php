@@ -39,7 +39,7 @@
              <td>{{$user->created_at->diffForHumans()}}</td>
              <td>{{$user->updated_at->diffForHumans()}}</td>
              <td class="text-center"><a class="btn btn-primary" href="{{route('admin.user.edit',$user->id)}}">Edit</a></td>
-             <td class="text-center"><a class="btn btn-danger" href="">Delete</a></td>
+             <td class="text-center"><a class="btn btn-danger" href="{{route('admin.user.delete',$user->id)}}">Delete</a></td>
          </tr>
          @endforeach
         @endif
