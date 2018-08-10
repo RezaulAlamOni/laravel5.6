@@ -31,7 +31,7 @@
                 {!! Form::password('password',['class'=>'form-control']) !!}
             </div>
 
-            {!! Form::submit('Create Post',['class'=>'btn btn-success']) !!}
+            {!! Form::submit('Create User',['class'=>'btn btn-success']) !!}
             <a href="" class="btn btn-primary"> Back</a>
 
         {!! Form::close() !!}

@@ -9,9 +9,9 @@
        <thead>
          <tr>
            <th>ID</th>
+              <th>Photo</th>
            <th>Name</th>
            <th>Email</th>
-           <th>Photo</th>
            <th>Role</th>
            <th>Active</th>
            <th>Created</th>
@@ -27,15 +27,19 @@
            @foreach($users as $user)
          <tr class="">
            <td>{{$user->id}}</td>
-           <td>{{$user->name}}</td>
-           <td>{{$user->email}}</td>
-           <td><a href=""><img class="img-responsive" style="height: 40px;" src="/images/{{$user->photo['file']}}" alt=""></a></td>
-           <td>{{$user->role['name']}}</td>
-           <td>{{$user->is_active==1?'Active':'Not Active'}}</td>
-           <td>{{$user->created_at->diffForHumans()}}</td>
-           <td>{{$user->updated_at->diffForHumans()}}</td>
-           <td class="text-center"><a class="btn btn-primary" href="">Edit</a></td>
-           <td class="text-center"><a class="btn btn-danger" href="">Delete</a></td>
+             <td>
+               <a href="">
+                   <img style="height: 50px;" src="{{$user->photo ? $user->photo['file']: 'http://placeholder.it/400*400'}}" alt="No user Photo">
+               </a>
+             </td>
+             <td>{{$user->name}}</td>
+             <td>{{$user->email}}</td>
+             <td>{{$user->role['name']}}</td>
+             <td>{{$user->is_active==1?'Active':'Not Active'}}</td>
+             <td>{{$user->created_at->diffForHumans()}}</td>
+             <td>{{$user->updated_at->diffForHumans()}}</td>
+             <td class="text-center"><a class="btn btn-primary" href="{{route('admin.user.edit',$user->id)}}">Edit</a></td>
+             <td class="text-center"><a class="btn btn-danger" href="">Delete</a></td>
          </tr>
          @endforeach
         @endif

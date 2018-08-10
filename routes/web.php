@@ -32,3 +32,5 @@ Route::get('/role',function (){
 Route::get('/admin/users','AdminUsersController@index')->name('admin.users');
 Route::post('/admin/user/create','AdminUsersController@store')->name('user.store');
 Route::get('/admin/user/create','AdminUsersController@create')->name('admin.user.create');
+Route::get('/admin/user/edit/{id}','AdminUsersController@edit')->name('admin.user.edit');
+Route::PATCH('/admin/user/update/{id}','AdminUsersController@update')->name('admin.user.update');
