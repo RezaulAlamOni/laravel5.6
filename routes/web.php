@@ -36,9 +36,9 @@ Route::get('/role',function (){
     Route::resource('/admin/user','AdminUsersController');
     Route::get('/admin','AdminUsersController@dashboard')->name('admin.dashboard');
     Route::get('/admin/users','AdminUsersController@index')->name('admin.users');
-    Route::post('/admin/user/create','AdminUsersController@store')->name('user.store');
+//    Route::post('/admin/user/create','AdminUsersController@store')->name('user.store');
     Route::get('/admin/user/create','AdminUsersController@create')->name('admin.user.create');
     Route::get('/admin/user/edit/{id}','AdminUsersController@edit')->name('admin.user.edit');
     Route::PATCH('/admin/user/update/{id}','AdminUsersController@update')->name('admin.user.update');
-    Route::delete('/admin/user/delete/{id}','AdminUsersController@destroy')->name('admin.user.delete');
+//    Route::delete('/admin/user/delete/{id}','AdminUsersController@destroy')->name('admin.user.delete');
 //});

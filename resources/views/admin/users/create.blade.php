@@ -3,7 +3,9 @@
 @section('content')
     <h1 class="page-header">
         Create Users
+
     </h1>
+    <div class="col-sm-10">
         {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true]) !!}
             {{csrf_field()}}
             <div class="form-group">
@@ -31,8 +33,8 @@
                 {!! Form::password('password',['class'=>'form-control']) !!}
             </div>
 
-            {!! Form::submit('Create User',['class'=>'btn btn-success']) !!}
-            <a href="" class="btn btn-primary"> Back</a>
+            {!! Form::submit('Create User',['class'=>'btn btn-success col-sm-6']) !!}
+            <a href="" class="btn btn-primary col-sm-6"> Back</a>
 
         {!! Form::close() !!}
 
@@ -47,4 +49,5 @@
                     </ul>
                 </div>
             @endif
+    </div>
     @stop

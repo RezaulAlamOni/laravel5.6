@@ -1,6 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
+
+    @if(Session::has('deleted'))
+        <p class="text-center text-uppercase text-danger"><br><br>{{session('deleted')}}</p>
+    @elseif(Session::has('created'))
+        <p class="text-center text-uppercase text-primary"><br><br>{{session('created')}}</p>
+    @elseif(Session::has('updated'))
+        <p class="text-center text-uppercase text-info"><br><br>{{session('updated')}}</p>
+    @endif
+
     <h1 class="page-header">
         All Users
     </h1>
@@ -39,7 +48,17 @@
              <td>{{$user->created_at->diffForHumans()}}</td>
              <td>{{$user->updated_at->diffForHumans()}}</td>
              <td class="text-center"><a class="btn btn-primary" href="{{route('admin.user.edit',$user->id)}}">Edit</a></td>
-             <td class="text-center"><a class="btn btn-danger" href="{{route('admin.user.delete',$user->id)}}">Delete</a></td>
+             {{--<td class="text-center"><a class="btn btn-danger" href="{{route('admin.user.delete',$user->id)}}">Delete</a></td>--}}
+             <td>
+
+
+              {!! Form::open(['method'=>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}
+                    {{csrf_field()}}
+                    {!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
+              {!! Form::close() !!}
+
+
+             </td>
          </tr>
          @endforeach
         @endif
