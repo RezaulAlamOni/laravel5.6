@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\Admin;
+use App\Http\Requests\EditRequest;
 use App\Http\Requests\UsersRequest;
 use App\Photo;
 use App\Role;
@@ -59,10 +60,11 @@ class AdminUsersController extends Controller
         return view('admin.users.edit',compact('user','roles'));
     }
 
-    public function update(UsersRequest $request, $id)
+    public function update(EditRequest $request, $id)
     {
         $user = User::findOrFail($id);
         $input = $request->all();
+
         if($file= $request->file('photo_id')){
             $name = time().$file->getClientOriginalName();
             $file->move('images',$name);
@@ -79,10 +81,11 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
 
-        User::findOrFail($id)->delete();
+        $user = User::findOrFail($id);
+        unlink(public_path().$user->photo['file']);
+        $user->delete();
 
         Session::flash('deleted','User has been Deleted !!!!');
-
         return redirect('/admin/users');
     }
 
