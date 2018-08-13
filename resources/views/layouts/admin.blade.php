@@ -53,8 +53,24 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+{{--                        <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>--}}
+                        <li>
+                            <a class="text-info" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out fa-fw"></i>
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
+
+
+
+
+
+
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
@@ -122,11 +138,11 @@
                             <a href=""><i class="fa fa-eject fa-fw"></i> Posts<span class="fa "></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/posts"><i class="fa fa-adn fa-fw"> </i>All Posts</a>
+                                    <a href="/admin/posts"><i class="fa fa-adn fa-fw"> </i>All Posts</a>
                                 </li>
 
                                 <li>
-                                    <a href="/posts/create"><i class="fa fa-edit fa-fw"> </i>Create Post</a>
+                                    <a href="{{route('admin.posts.create')}}"><i class="fa fa-edit fa-fw"> </i>Create Post</a>
                                 </li>
 
                             </ul>

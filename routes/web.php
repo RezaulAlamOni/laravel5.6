@@ -21,18 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/role',function (){
-    $user=User::find(8);
-        if($user->isAdmin()){
-         return "Yore areaa asdmin";
-        }
-        return 'yiu are inot';
-});
-
 
 //Route::group(['middleware'=>'admin'],function (){
 //Route::group(['middleware'=>Admin::class],function (){
-
     Route::resource('/admin/user','AdminUsersController');
     Route::get('/admin','AdminUsersController@dashboard')->name('admin.dashboard');
     Route::get('/admin/users','AdminUsersController@index')->name('admin.users');
@@ -42,3 +33,8 @@ Route::get('/role',function (){
     Route::PATCH('/admin/user/update/{id}','AdminUsersController@update')->name('admin.user.update');
 //    Route::delete('/admin/user/delete/{id}','AdminUsersController@destroy')->name('admin.user.delete');
 //});
+
+//admin posts
+Route::resource('/admin/posts','AdminPostsController');
+Route::get('/admin/post/create','AdminPostsController@create')->name('admin.posts.create');
+
