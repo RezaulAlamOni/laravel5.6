@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\Admin;
+use App\Post;
 use Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
@@ -15,7 +16,8 @@ class AdminPostsController extends Controller
 
     public function index()
     {
-        return view('admin.posts.index');
+        $posts = Post::all();
+        return view('admin.posts.index',compact('posts'));
     }
 
     public function create()
@@ -23,12 +25,6 @@ class AdminPostsController extends Controller
         return view('admin.posts.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
