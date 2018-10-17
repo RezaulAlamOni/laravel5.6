@@ -6,7 +6,4 @@
     </h1>
 
 
-
-
-
     @endsection
