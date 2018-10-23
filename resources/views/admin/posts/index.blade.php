@@ -3,7 +3,10 @@
 @section('content')
 
 
-    <h1 class="text-center text-primary ">All Posts</h1>
+    <h1 class="page-header">All Posts <br>
+        <a href="{{Route('admin.posts.create')}}" class="btn btn-info">Add Posts</a>
+
+    </h1>
 
     <table class="table table-bordered " cellspacing="1" cellpadding="1">
        <thead>

@@ -38,12 +38,14 @@ class AdminUsersController extends Controller
     {
         $input=$request->all();
         if($file= $request->file('photo_id')){
+
             $name = time().$file->getClientOriginalName();
             $file->move('images',$name);
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id']=$photo->id;
         }
         $input['password']=bcrypt($request->password);
+
         User::create($input);
         Session::flash('created','User has been created !!!!');
         return redirect('/admin/users');

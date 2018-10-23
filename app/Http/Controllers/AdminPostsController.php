@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\Admin;
 use App\Post;
+use App\Role;
 use Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
@@ -22,7 +23,8 @@ class AdminPostsController extends Controller
 
     public function create()
     {
-        return view('admin.posts.create');
+        $roles = Role::pluck('name','id')->all();
+        return view('admin.posts.create',compact('roles'));
     }
 
     public function store(Request $request)
@@ -30,12 +32,6 @@ class AdminPostsController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //

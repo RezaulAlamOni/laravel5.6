@@ -102,7 +102,7 @@
         <nav id="sidebar">
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
+                    <ul class="nav " id="side-menu">
                         <li class="sidebar-search">
                             <form action="admin.blade.php" method="post">
                             <div class="input-group custom-search-form">
@@ -118,7 +118,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a  class="active" href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a  class="active dropdown" href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
 
                         <li>
@@ -166,7 +166,7 @@
                         </li>
 
 
-                        <li>
+                        <li class="dropdown-item">
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
