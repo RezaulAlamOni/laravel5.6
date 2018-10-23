@@ -7,7 +7,7 @@
 
     </h1>
     <div class="col-sm-10">
-        {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true]) !!}
+        {!! Form::open(['method'=>'POST','action'=>'AdminPostsController@store','files'=>true]) !!}
         {{csrf_field()}}
         <div class="form-group">
             {!! Form::label('name','Name') !!}
