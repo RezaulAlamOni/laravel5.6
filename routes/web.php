@@ -22,9 +22,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//Route::group(['middleware'=>'admin'],function (){
+//Route::group(['middleware'=>'admin'],function () {
 //Route::group(['middleware'=>Admin::class],function (){
-    Route::resource('/admin/user','AdminUsersController');
+    Route::resource('/admin/user', 'AdminUsersController');
+
     Route::get('/admin','AdminUsersController@dashboard')->name('admin.dashboard');
     Route::get('/admin/users','AdminUsersController@index')->name('admin.users');
 //    Route::post('/admin/user/create','AdminUsersController@store')->name('user.store');
@@ -35,6 +36,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //});
 
 //admin posts
-Route::resource('/admin/posts','AdminPostsController');
+
+Route::resource('/admin/posts', 'AdminPostsController');
+Route::get('/admin/posts','AdminPostsController@index')->name('admin.posts');
 Route::get('/admin/post/create','AdminPostsController@create')->name('admin.posts.create');
+Route::get('/admin/post/edit/{id}','AdminPostsController@edit')->name('admin.posts.edit');
 

@@ -81,8 +81,8 @@
 
 
             <div class="content">
-                <div class="title m-b-md">
-                    CMS
+                <div class="title">
+                     Welcome To CMS Development <br> With LARAVEL<br><h4>Oni</h4>
                 </div>
 
                 {{--<div class="links">--}}

@@ -138,7 +138,7 @@
                             <a href=""><i class="fa fa-eject fa-fw"></i> Posts<span class="fa "></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/posts"><i class="fa fa-adn fa-fw"> </i>All Posts</a>
+                                    <a href="{{route('admin.posts')}}"><i class="fa fa-adn fa-fw"> </i>All Posts</a>
                                 </li>
 
                                 <li>

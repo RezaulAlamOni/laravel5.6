@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\Admin;
+use App\Http\Requests\PostCreateRequest;
+use App\Photo;
 use App\Post;
 use App\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminPostsController extends Controller
 {
@@ -27,9 +30,22 @@ class AdminPostsController extends Controller
         return view('admin.posts.create',compact('roles'));
     }
 
-    public function store(Request $request)
+    public function store(PostCreateRequest $request)
     {
-        //
+        $input = $request->all();
+        $user = Auth::User();
+
+
+        if($file = $request->file('photo_id')){
+
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images',$name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        $user->posts()->create($input);
+
+        return redirect('/admin/posts');
     }
 
     public function show($id)
@@ -45,7 +61,7 @@ class AdminPostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.posts.edit');
     }
 
     /**

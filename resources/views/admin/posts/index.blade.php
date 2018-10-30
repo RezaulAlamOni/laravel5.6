@@ -26,17 +26,25 @@
        <tbody>
        @if($posts)
            @foreach($posts as $post)
-                <td>{{$post->id}}</td>
-                <td>{{$post->user->name}}</td>
-                <td>{{$post->category_id}}</td>
-                <td>{{$post->title}}</td>
-                <td>{{$post->body}}</td>
-                <td>{{$post->photo_id}}</td>
-                <td>{{$post->created_at->diffForhumans()}}</td>
-                <td>{{$post->updated_at->diffForhumans()}}</td>
-                <td><a href="" class="btn btn-primary">Edit</a></td>
-                <td><a href="" class="btn btn-danger">Delete</a></td>
-
+               <tr>
+                    <td>{{$post->id}}</td>
+                    <td>{{$post->user->name}}</td>
+                    <td>{{$post->category_id}}</td>
+                    <td>{{$post->title}}</td>
+                    <td>{{$post->body}}</td>
+                    <td>
+                        <img height="70px" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400*400' }}" alt="">
+                    </td>
+                    <td>{{$post->created_at->diffForhumans()}}</td>
+                    <td>{{$post->updated_at->diffForhumans()}}</td>
+                    <td><a href="{{Route('admin.posts.edit',$post->id)}}" class="btn btn-primary">Edit</a></td>
+                    <td>
+                        {!! Form::open(['method'=>'DELETE','action'=>['AdminPostsController@destroy',$post->id]]) !!}
+                        {{csrf_field()}}
+                        {!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
+                        {!! Form::close() !!}
+                    </td>
+               </tr>
                @endforeach
            @endif
              </tbody>
