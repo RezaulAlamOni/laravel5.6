@@ -10,7 +10,7 @@ class Photo extends Model
         'file'
     ];
     //accessor for photo show
-    protected $uploads = '/images/';
+    protected $uploads = '/laravel_final/public/images/';
 
     public function getFileAttribute($photo){
         return $this->uploads . $photo;
